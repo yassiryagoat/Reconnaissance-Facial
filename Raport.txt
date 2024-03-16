@@ -1,0 +1,36 @@
+Le code fourni est un exemple d'application permettant de détecter et d'enregistrer automatiquement ou [manuellement]
+ des visages en temps réel à partir d'une caméra en direct.
+
+Technologies utilisées :
+
+    Java : Utilisé comme langage de programmation principal pour le développement de l'application.
+    OpenCV : Une bibliothèque  utilisée pour la détection de visage.
+    Java Swing : Une partie de l'API Java AWT utilisée pour créer une interface utilisateur graphique (GUI) .
+
+Les algorithmes utilisés :
+
+    Détection de Visage :
+
+        L'algorithme de détection de visage est utilisé pour repérer les visages dans chaque image capturée par la caméra.
+         Il s'appuie sur un classificateur de cascade Haar pré-entraîné, chargé à partir d'un fichier XML spécifié.
+        La méthode detectMultiScale() de la classe CascadeClassifier est utilisée pour détecter les visages dans une image
+         donnée.
+
+    Dessin de Rectangles :
+
+        Après la détection des visages, des rectangles sont dessinés autour de chaque visage détecté dans l'image.
+        La fonction rectangle() de la classe Imgproc d'OpenCV est utilisée pour dessiner les rectangles autour des visages
+         détectés.
+
+    Conversion d'Image :
+
+        Les images capturées au format Mat d'OpenCV sont converties en images BufferedImage pour pouvoir les afficher dans
+         une fenêtre Swing.
+        La méthode matToBufferedImage() est utilisée pour réaliser cette conversion en extrayant les pixels de l'image Mat
+         et en les copiant dans une nouvelle image BufferedImage.
+
+    Capture d'Image :
+
+        L'application permet à l'utilisateur de capturer des images manuellement en appuyant sur un bouton dédié
+         ("Capture Image").
+        Lorsqu'une image est capturée, elle est sauvegardée localement au format JPEG en utilisant la méthode saveImage().
